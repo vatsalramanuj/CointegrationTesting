@@ -158,7 +158,7 @@ four 4-ticker blocks are the groups that were built to be cointegrated internall
 * **Writes (with `--out-prefix`):** `_summary.csv`, per-pair `_detail.csv` / `_trades.csv`, `_walk_forward_*.csv`,
   `_portfolio_*.csv`, plus the PNGs below. `--no-plots` skips per-pair PNGs for big runs.
 
-![Per-pair equity curve and z-score](backtest_results\backtest_v2_DUK_WM_equity_curve.png)
+![Per-pair equity curve and z-score](backtest_results/backtest_v2_DUK_WM_equity_curve.png)
 
 *Per-pair equity curve (top) and the spread z-score (bottom) on the held-out test period (synthetic).
 **How to read it:** flat stretches are time in cash; steps up/down line up with z-score excursions that were entered and
@@ -168,7 +168,7 @@ exited. Look for whether profits come from many small mean-reversions or a few l
 **How to read it:** a broad green plateau means the result is robust to the exact thresholds; one isolated dark cell is a
 sign of over-fitting. The chosen thresholds are then applied once to the untouched test slice.*
 
-![Walk-forward portfolio](backtest_results\backtest_v2_portfolio_walk_forward.png)
+![Walk-forward portfolio](backtest_results/backtest_v2_portfolio_walk_forward.png)
 
 *Walk-forward portfolio (`--portfolio`, synthetic). Top: stitched out-of-sample equity (growth of $1) with dashed lines
 at fold boundaries. Bottom: Sharpe per fold. **How to read it:** flat sections are folds where nothing was selected (cash);
@@ -190,7 +190,7 @@ a bar below zero is a fold that lost money. Stable folds matter more than the fi
   `_train_diagnostics.csv`, `_cost_sensitivity.csv`, `_portfolio_*_folds/daily/summary.csv`, `_portfolio_sweep_summary.csv`
   (with `--portfolio-sweep`), and the equity chart below.
 
-![Watchlist portfolio equity](walk_forward_output\watchlist_v3_portfolio_equity.png)
+![Watchlist portfolio equity](walk_forward_output/watchlist_v3_portfolio_equity.png)
 
 *Out-of-sample portfolio equity (top) and drawdown (bottom), dashed lines = fold boundaries. This demo swapped in six
 synthetic pairs for the real 13, and the title text is fixed in the script ("13-Pair Watchlist V3"). **How to read it:**
@@ -222,7 +222,7 @@ This track asks whether an *automatic* process (screen, rank on recent PnL, trad
 * **Writes:** `selection_log.csv`, `period_summary.csv`, `pair_summary_selected.csv`, `daily_pair_net_pnl.csv`,
   `daily_portfolio_pnl.csv`, `trades_selected.csv`, `rolling_chart.png` (same three panels as the chart in the next section).
 
-![Fixed-pool rolling chart](rolling_output\rolling_chart.png)
+![Fixed-pool rolling chart](rolling_output/rolling_chart.png)
 
 *Legacy fixed-pool chart (synthetic): same three panels as the rescreen chart below, but with dotted lines at rebalances only (there are no re-screens).*
 
@@ -245,7 +245,7 @@ This track asks whether an *automatic* process (screen, rank on recent PnL, trad
 * **Writes:** `selection_log.csv`, `period_summary.csv`, `pair_summary_selected.csv`, `screen_log.csv`,
   `daily_pair_net_pnl.csv` (input for the baseline), `daily_portfolio_pnl.csv`, `trades_selected.csv`, `rescreen_chart.png`.
 
-![Rescreen backtest chart](rescreen_output\rescreen_chart.png)
+![Rescreen backtest chart](rescreen_output/rescreen_chart.png)
 
 *Rescreen chart (synthetic). **Top:** cumulative net return of the traded top-K versus the whole pool traded with equal
 weight; red dashed lines = re-screens, grey = rebalances. **Middle:** return per six-month period, selected vs whole pool.
@@ -268,7 +268,7 @@ what you expect when all pairs are alike.*
 * **Writes:** `baseline_summary.csv`, `baseline_by_period.csv`, `formation_quintile_table.csv`, `random_distribution.csv`
   (the simulated draws), and `baseline_chart.png`.
 
-![Random baseline chart](rolling_output\baseline\baseline_chart.png)
+![Random baseline chart](rolling_output/baseline/baseline_chart.png)
 
 *Baseline chart (synthetic, 300 simulations). **Top:** distribution of total net PnL over random-K selections, with the
 actual top-K (red) and bottom-K (black dashed). **Middle:** same for Sharpe. **Bottom:** cumulative PnL fan: random 5-95%
@@ -296,7 +296,7 @@ which is the expected null result on identical synthetic pairs.*
   An optional `--holdout-start` reserves later periods: they are only reported, never used to pick anything.
 * **Writes:** `panel.csv`, `<name>_discovery.csv`, `<name>_holdout.csv` (one per analysis), and `panel_quintiles.png`.
 
-![Quintile chart](panel_output\panel_quintiles.png)
+![Quintile chart](panel_output/panel_quintiles.png)
 
 *Forward return by metric quintile (synthetic, discovery sample); the script draws up to six headline metrics
 (`coint_strength`, `fast_reversion`, `crossings_per_year`, `edge_ratio`, `net_edge_bps_per_year`, `stability`), one
@@ -328,7 +328,7 @@ gap between orange and blue is the cost drag.*
 * **Writes (with `--out-prefix`):** `_pair_summary.csv`, `_trades.csv`, `_daily.csv`, `_pair_pnl.csv`, per-pair
   `_detail.csv`, and the equity chart below. The output folder must already exist.
 
-![Frozen strategy equity](frozen_strategy\frozen_strategy_equity_curve.png)
+![Frozen strategy equity](frozen_strategy/frozen_strategy_equity_curve.png)
 
 *Daily equity (top) and drawdown (bottom) with the research cutoff marked by the red dashed line (synthetic data).
 **How to read it:** compare slope and drawdown depth on the left of the line (research period) with the right (genuinely
@@ -348,8 +348,8 @@ later data). A strategy that was over-fit shows a clear deterioration after the 
   `_monthly.csv`, `_pair_stats.csv`, `_pair_daily.csv`, `_trades.csv`, `_boundary_state.csv`, `_open_positions.csv`, and the
   two charts below.
 
-![Locked OOS equity](frozen_strategy\frozen_strategy_oos_equity_curve.png)
-![Locked OOS drawdown](frozen_strategy\frozen_strategy_oos_equity_curve.png)
+![Locked OOS equity](frozen_strategy/frozen_strategy_oos_equity_curve.png)
+![Locked OOS drawdown](frozen_strategy/frozen_strategy_oos_equity_curve.png)
 
 *Locked out-of-sample equity and drawdown (synthetic). **How to read them:** this is the one result that is not allowed to
 be re-tuned. Judge it against the in-sample figure above and be suspicious if it looks far better; a decay is normal.*
@@ -362,12 +362,12 @@ be re-tuned. Judge it against the in-sample figure above and be suspicious if it
 * **Writes:** one PNG per pair (`<A>_<B>_hedge.png`), `all_hedged_spreads.png`, and a CSV per pair with the spread and rolling
   statistics.
 
-![Hedged spread for one pair](frozen_strategy\hedge_plots\CBOE_HLT_hedge.png)
+![Hedged spread for one pair](frozen_strategy/hedge_plots/CBOE_HLT_hedge.png)
 
 *One pair (synthetic): the price of A against β × B (top) and the hedged spread with its rolling mean and ±3σ bands
 (bottom). **How to read it:** the two price lines should track each other, and the spread should oscillate around zero
 and cross the mean often. A spread that wanders away and stays there is a broken pair. The combined image stacks all four pairs.*
-![](frozen_strategy\hedge_plots\all_hedged_spreads.png) 
+![](frozen_strategy/hedge_plots/all_hedged_spreads.png) 
 
 ---
 
